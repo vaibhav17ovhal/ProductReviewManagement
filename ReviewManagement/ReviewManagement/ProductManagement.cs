@@ -56,5 +56,17 @@ namespace ReviewManagement
                 Console.WriteLine($"ProductID ---> {item.ProductId}, Review ---> {item.Review}");
             }
         }
+
+        //UC6
+        public void SkipTop5(List<ProductReview> data)
+        {
+            var result3 = data.Skip(5);
+
+            foreach (var num in result3)
+            {
+                Console.WriteLine($"ProductId ---> {num.ProductId}  , UserId ---> {num.UserID}  , Rating ---> {num.Rating}  , " +
+                    $"Review ---> {num.Review}  , IsLike ---> {num.IsLike}");
+            }
+        }
     }
 }
