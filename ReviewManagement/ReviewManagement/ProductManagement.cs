@@ -20,5 +20,19 @@ namespace ReviewManagement
                 Console.WriteLine($"ProductId ---> {data.ProductId}  , UserId ---> {data.UserID}  , Rating ---> {data.Rating}  , Review ---> {data.Review}  , IsLike ---> {data.IsLike}");
             }
         }
+
+        //UC3
+        public void SelectedRecords(List<ProductReview> listReview)
+        {
+            var result = (from re in listReview
+                          where (re.ProductId == 1 || re.ProductId == 4 || re.ProductId == 9)
+                          && re.Rating > 3
+                          select re);
+
+            foreach (var data in result)
+            {
+                Console.WriteLine($"ProductId ---> {data.ProductId}  , UserId ---> {data.UserID}  , Rating ---> {data.Rating}  , Review ---> {data.Review}  , IsLike ---> {data.IsLike}");
+            }
+        }
     }
 }

@@ -31,6 +31,10 @@ namespace ReviewManagement
             
             ProductManagement manage = new ProductManagement();
             manage.TopRecords(review);
+
+            Console.WriteLine("\n==========XXX===========\n");
+
+            manage.SelectedRecords(review);
         }
     }
 }
