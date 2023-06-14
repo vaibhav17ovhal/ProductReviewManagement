@@ -121,6 +121,29 @@ namespace ReviewManagement
                 Console.WriteLine("IsLike: " + row.Field<bool>("IsLike"));
                 Console.WriteLine();
             }
+
+            //UC12
+            // Add 5 to 6 records for UserID = 101
+            for (int i = 0; i < 5; i++)
+            {
+                dataTable.Rows.Add(1, 101, 5, "Additional review", true);
+            }
+
+            // Retrieve records where UserID = 101 and order by Rating
+            var user101Records = dataTable.AsEnumerable()
+                .Where(row => row.Field<int>("UserID") == 101)
+                .OrderBy(row => row.Field<double>("Rating"));
+
+            // Display the matching records
+            foreach (var row in user101Records)
+            {
+                Console.WriteLine("ProductID: " + row.Field<int>("ProductID"));
+                Console.WriteLine("UserID: " + row.Field<int>("UserID"));
+                Console.WriteLine("Rating: " + row.Field<double>("Rating"));
+                Console.WriteLine("Review: " + row.Field<string>("Review"));
+                Console.WriteLine("IsLike: " + row.Field<bool>("IsLike"));
+                Console.WriteLine();
+            }
         }
     }
 }
