@@ -45,5 +45,16 @@ namespace ReviewManagement
                 Console.WriteLine($"ProductId ---> {data.ProductId}  , Count ---> {data.Count}");
             }
         }
+
+        //UC5
+        public void RetrieveProductIDAndReview(List<ProductReview> data)
+        {
+            var result2 = data.Select(data => new { data.ProductId, data.Review });
+
+            foreach (var item in result2)
+            {
+                Console.WriteLine($"ProductID ---> {item.ProductId}, Review ---> {item.Review}");
+            }
+        }
     }
 }
