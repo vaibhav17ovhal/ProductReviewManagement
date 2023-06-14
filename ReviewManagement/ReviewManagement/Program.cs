@@ -87,6 +87,24 @@ namespace ReviewManagement
                 Console.WriteLine("IsLike: " + row["IsLike"]);
                 Console.WriteLine();
             }
+
+            //UC10
+            // Find the average rating for each ProductID using LINQ
+            var averageRatings = from row in dataTable.AsEnumerable()
+                                 group row by row.Field<int>("ProductID") into g
+                                 select new
+                                 {
+                                     ProductID = g.Key,
+                                     AverageRating = g.Average(row => row.Field<double>("Rating"))
+                                 };
+
+            // Display the average ratings
+            foreach (var rating in averageRatings)
+            {
+                Console.WriteLine("ProductID: " + rating.ProductID);
+                Console.WriteLine("Average Rating: " + rating.AverageRating);
+                Console.WriteLine();
+            }
         }
     }
 }
