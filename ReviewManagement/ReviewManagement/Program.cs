@@ -105,6 +105,22 @@ namespace ReviewManagement
                 Console.WriteLine("Average Rating: " + rating.AverageRating);
                 Console.WriteLine();
             }
+
+            //UC11
+            // Retrieve records where the review message contains "Good Product!"
+            var goodProductReviews = dataTable.AsEnumerable()
+                .Where(row => row.Field<string>("Review").Contains("Great product!"));
+
+            // Display the matching records
+            foreach (var row in goodProductReviews)
+            {
+                Console.WriteLine("ProductID: " + row.Field<int>("ProductID"));
+                Console.WriteLine("UserID: " + row.Field<int>("UserID"));
+                Console.WriteLine("Rating: " + row.Field<double>("Rating"));
+                Console.WriteLine("Review: " + row.Field<string>("Review"));
+                Console.WriteLine("IsLike: " + row.Field<bool>("IsLike"));
+                Console.WriteLine();
+            }
         }
     }
 }
