@@ -28,6 +28,9 @@ namespace ReviewManagement
             {
                 Console.WriteLine($"ProductId ---> {data.ProductId}  , UserId ---> {data.UserID}  , Rating ---> {data.Rating}  , Review ---> {data.Review}  , IsLike ---> {data.IsLike}");
             }
+            
+            ProductManagement manage = new ProductManagement();
+            manage.TopRecords(review);
         }
     }
 }
