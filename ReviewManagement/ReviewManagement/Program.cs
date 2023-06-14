@@ -35,6 +35,10 @@ namespace ReviewManagement
             Console.WriteLine("\n==========XXX===========\n");
 
             manage.SelectedRecords(review);
+
+            Console.WriteLine("\n==========XXX===========\n");
+
+            manage.CountProductIDReview(review);
         }
     }
 }

@@ -34,5 +34,16 @@ namespace ReviewManagement
                 Console.WriteLine($"ProductId ---> {data.ProductId}  , UserId ---> {data.UserID}  , Rating ---> {data.Rating}  , Review ---> {data.Review}  , IsLike ---> {data.IsLike}");
             }
         }
+
+        //UC4
+        public void CountProductIDReview(List<ProductReview> re)
+        {
+            var result = re.GroupBy(x => x.ProductId).Select(x => new { ProductId = x.Key, Count = x.Count() });
+
+            foreach (var data in result)
+            {
+                Console.WriteLine($"ProductId ---> {data.ProductId}  , Count ---> {data.Count}");
+            }
+        }
     }
 }
