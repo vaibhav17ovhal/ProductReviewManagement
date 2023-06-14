@@ -47,6 +47,10 @@ namespace ReviewManagement
             Console.WriteLine("\n==========XXX===========\n");
 
             manage.SkipTop5(review);
+
+            Console.WriteLine("\n==========XXX===========\n");
+
+            manage.RetrieveProductIDAndReview2(review);
         }
     }
 }

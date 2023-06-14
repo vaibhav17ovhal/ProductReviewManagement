@@ -68,5 +68,16 @@ namespace ReviewManagement
                     $"Review ---> {num.Review}  , IsLike ---> {num.IsLike}");
             }
         }
+
+        //UC7
+        public void RetrieveProductIDAndReview2(List<ProductReview> data)
+        {
+            var result2 = data.Select(data => new { data.ProductId, data.Review });
+
+            foreach (var item in result2)
+            {
+                Console.WriteLine($"ProductID ---> {item.ProductId}, Review ---> {item.Review}");
+            }
+        }
     }
 }
